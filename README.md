@@ -12,3 +12,4 @@ To create the virtual environment required to run the code, run `make virtualenv
 To activate the virtual environment run: `source ./build/virtualenv/bin/activate`.
 
 To recreate the workflow run: `dvc repro`.
+url = s3://mantisnlp-public/rasa_mlops/dvc

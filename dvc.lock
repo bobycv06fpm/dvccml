@@ -10,30 +10,66 @@ stages:
     params:
       config.yml:
         pipeline:
+        - name: WhitespaceTokenizer
+        - name: RegexFeaturizer
+        - name: LexicalSyntacticFeaturizer
+        - name: CountVectorsFeaturizer
+        - name: CountVectorsFeaturizer
+          analyzer: char_wb
+          min_ngram: 1
+          max_ngram: 4
+        - name: DIETClassifier
+          epochs: 150
+          constrain_similarities: true
+        - name: EntitySynonymMapper
+        - name: ResponseSelector
+          epochs: 100
+          constrain_similarities: true
+        - name: FallbackClassifier
+          threshold: 0.3
+          ambiguity_threshold: 0.1
         policies:
     outs:
     - path: ./models/
-      md5: 4598378ab1eea1cdc017afb33aa7022c.dir
-      size: 25002080
+      md5: 808f2939bf5e33ac7d134767cc338480.dir
+      size: 24970880
       nfiles: 1
   test:
     cmd: rasa test --out ./results --model ./models/model.tar.gz
     deps:
     - path: ./models
-      md5: 4598378ab1eea1cdc017afb33aa7022c.dir
-      size: 25002080
+      md5: 808f2939bf5e33ac7d134767cc338480.dir
+      size: 24970880
       nfiles: 1
     params:
       config.yml:
         pipeline:
+        - name: WhitespaceTokenizer
+        - name: RegexFeaturizer
+        - name: LexicalSyntacticFeaturizer
+        - name: CountVectorsFeaturizer
+        - name: CountVectorsFeaturizer
+          analyzer: char_wb
+          min_ngram: 1
+          max_ngram: 4
+        - name: DIETClassifier
+          epochs: 150
+          constrain_similarities: true
+        - name: EntitySynonymMapper
+        - name: ResponseSelector
+          epochs: 100
+          constrain_similarities: true
+        - name: FallbackClassifier
+          threshold: 0.3
+          ambiguity_threshold: 0.1
         policies:
     outs:
     - path: ./results/TEDPolicy_report.json
       md5: 99914b932bd37a50b983c5e7c90ae93b
       size: 2
     - path: ./results/intent_report.json
-      md5: 14434576a26da7392815d186dc812316
+      md5: 29846b6a601f8f28dbc18fbad7dd0a4d
       size: 1171
     - path: ./results/story_report.json
-      md5: 4853f24e4c90889f6ce9c9576427beaf
+      md5: 2410293c7cd9b6746ebbcbf18c76e3da
       size: 1884
