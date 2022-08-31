@@ -22,7 +22,7 @@ stages:
       deps:
         - ./models
       metrics:
-        - ./results/intent_errors.json
+#        - ./results/intent_errors.json
         - ./results/intent_report.json
         - ./results/story_report.json
         - ./results/TEDPolicy_report.json
