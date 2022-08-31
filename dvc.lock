@@ -4,41 +4,17 @@ stages:
     cmd: rasa data validate &&  rasa train --fixed-model-name ./models/model
     deps:
     - path: data
-      md5: b69d079a379fb59a42e3ed58a136ea54.dir
-      size: 2240
+      md5: 482c4f2fd30bf1f9cf86973448e6ceca.dir
+      size: 2219
       nfiles: 3
     params:
       config.yml:
         pipeline:
-        - name: WhitespaceTokenizer
-        - name: RegexFeaturizer
-        - name: LexicalSyntacticFeaturizer
-        - name: CountVectorsFeaturizer
-        - name: CountVectorsFeaturizer
-          analyzer: char_wb
-          min_ngram: 1
-          max_ngram: 4
-        - name: DIETClassifier
-          epochs: 100
-          constrain_similarities: true
-        - name: EntitySynonymMapper
-        - name: ResponseSelector
-          epochs: 100
-          constrain_similarities: true
-        - name: FallbackClassifier
-          threshold: 0.3
-          ambiguity_threshold: 0.1
         policies:
-        - name: MemoizationPolicy
-        - name: RulePolicy
-        - name: TEDPolicy
-          max_history: 5
-          epochs: 100
-          constrain_similarities: true
     outs:
     - path: ./models/
-      md5: 387ffb169e745beeea3ae70ae19bd4b8.dir
-      size: 23006082
+      md5: 82003163f12e64081721eecbad6618e6.dir
+      size: 25002049
       nfiles: 1
   test:
     cmd: rasa test --out ./results --model ./models/model.tar.gz
