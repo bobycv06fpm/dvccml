@@ -1,6 +1,8 @@
 [core]
     remote = s3
     hardlink_lock = true
+    autostage = true
 ['remote "s3"']
     url = s3://dvccml/dvc
     region = eu-west-1
+
