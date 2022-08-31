@@ -13,15 +13,15 @@ stages:
         policies:
     outs:
     - path: ./models/
-      md5: 7491718c1a32963f100145a1cbe472f4.dir
-      size: 25002076
+      md5: 4598378ab1eea1cdc017afb33aa7022c.dir
+      size: 25002080
       nfiles: 1
   test:
     cmd: rasa test --out ./results --model ./models/model.tar.gz
     deps:
     - path: ./models
-      md5: 7491718c1a32963f100145a1cbe472f4.dir
-      size: 25002076
+      md5: 4598378ab1eea1cdc017afb33aa7022c.dir
+      size: 25002080
       nfiles: 1
     params:
       config.yml:
@@ -32,8 +32,8 @@ stages:
       md5: 99914b932bd37a50b983c5e7c90ae93b
       size: 2
     - path: ./results/intent_report.json
-      md5: 7dc184670000d983740f54d97fe1fe19
+      md5: 14434576a26da7392815d186dc812316
       size: 1171
     - path: ./results/story_report.json
-      md5: ad391b6520cef7ae82127b14ae8698df
+      md5: 4853f24e4c90889f6ce9c9576427beaf
       size: 1884
